@@ -1,1 +1,1 @@
-this is a readme file created using the bash terminal
+A simple rock paper scissors game 
