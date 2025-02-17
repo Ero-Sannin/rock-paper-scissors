@@ -4,14 +4,14 @@ function getComputerChoice(){
 function getHumanChoice(){
     return prompt("enter your choice:").trim().toUpperCase()
 }
-console.log(getComputerChoice())
-console.log(getHumanChoice())
+
 
 let HumanScore=0
 let ComputerScore=0
 
 
 computerChoice=getComputerChoice()
+console.log(computerChoice)
 humanChoice=getHumanChoice()
 
 function playRound(computerChoice,humanChoice){
@@ -47,17 +47,18 @@ function playRound(computerChoice,humanChoice){
     else if(humanChoice=="SCISSOR"){
         switch(computerChoice){
             case 0:
-                console.log("The winner is Human!!")
-                HumanScore++
+                console.log("The winner is Computer!!")
+                ComputerScore++
                 break
             case 1:
-                console.log("Its a tie!!")
+                console.log("The winner is Human!!")
                 break
             case 2:
-                console.log("The winner is computer!!")
-                ComputerScore++
+                console.log("Its a tie")
         }
     }
 }
 
-console.log(("hello").strcmpi("hEllo"))
+playRound(computerChoice,humanChoice)
+console.log("Human: "+HumanScore)
+console.log("Computer: "+ComputerScore)
