@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        button{
+        
+        button {
             background-color: #007BFF;
             color: white;
+            font-weight: bold;
             padding: 10px 20px;
+            margin: 10px;
             border: none;
             border-radius: 5px;
             font-size: 16px;
@@ -16,11 +20,19 @@
         }
     </style>
 </head>
+
 <body>
     <script src="script.js">
-        
-    </script>
 
-    <button onclick="playGame()">Play a game of rock paper and scissor</button>
+    </script>
+    <div class="options">
+        <button class="option">Rock</button>
+        <button class="option">Paper</button>
+        <button class="option">Scissors</button>
+    </div>
+    <div class="result">
+
+    </div>
 </body>
+
 </html>
