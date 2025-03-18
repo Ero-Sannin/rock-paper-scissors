@@ -1,52 +1,69 @@
 function playRound(event) {
     let humanChoice = event.target.innerText.trim().toUpperCase();
-    const computerChoice=getComputerChoice();
+    const computerChoice = getComputerChoice();
     console.log(computerChoice);
+
+    if(computerScore===0&&humanScore===0&&tieCount===0){
+        result.innerHTML="";
+    }
+
     if (humanChoice == "ROCK") {
         switch (computerChoice) {
             case 0:
-                result.innerText="Its a tie!!";
+                result.innerText += "\nIts a tie!!";
                 break
             case 1:
-                result.innerText="The winner is Computer";
-                ComputerScore++
+                result.innerText += "\nThe winner is Computer";
+                computerScore++
                 break
             case 2:
-                result.innerText="The winner is Human!";
-                HumanScore++
+                result.innerText += "\nThe winner is Human!";
+                humanScore++
         }
 
     }
     else if (humanChoice == "PAPER") {
         switch (computerChoice) {
             case 0:
-                result.innerText="The winner is Human!";
-                HumanScore++
+                result.innerText += "\nThe winner is Human!";
+                humanScore++
                 break
             case 1:
-                result.innerText="Its a tie!!";
+                result.innerText += "\nIts a tie!!";
                 break
             case 2:
-                result.innerText="The winner is Computer";
-                ComputerScore++
+                result.innerText += "\nThe winner is Computer";
+                computerScore++
         }
     }
     else if (humanChoice == "SCISSOR") {
         switch (computerChoice) {
             case 0:
-                result.innerText="The winner is Computer";
-                ComputerScore++
+                result.innerText += "\nThe winner is Computer";
+                computerScore++
                 break
             case 1:
-                result.innerText="The winner is Human!";
-                HumanScore++
+                result.innerText += "\nThe winner is Human!";
+                humanScore++
                 break
             case 2:
-                result.innerText="Its a tie!!";
+                result.innerText += "\nIts a tie!!";
+        }
+    }
+
+    if (computerScore === 5 || humanScore === 5) {
+        if (humanScore < computerScore) {
+            result.innerText = "Computer wins the match";
+            humanScore = 0;
+            computerScore = 0;
+        }
+        else {
+            result.innerText = "Human wins the match";
+            humanScore = 0;
+            computerScore = 0;
         }
     }
 }
-
 function getComputerChoice() {
     return Math.floor(Math.random() * 3)
 }
@@ -54,7 +71,7 @@ function getComputerChoice() {
 
 
 let options = document.querySelectorAll(".option");
-let result=document.querySelector(".result");
+let result = document.querySelector(".result");
 options.forEach(option => {
     option.addEventListener("click", playRound);
 
@@ -62,8 +79,9 @@ options.forEach(option => {
 
 
 
-let HumanScore = 0
-let ComputerScore = 0
+let humanScore = 0;
+let computerScore = 0;
+let tieCount=0;
 
 
 
